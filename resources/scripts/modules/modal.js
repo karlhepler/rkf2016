@@ -43,14 +43,39 @@ function modalDirective() {
 })
 
 .controller('modalController', [
-'$scope', 'biography', '$sce', 'states',
-function modalController($scope, biography, $sce, states) {
+'$scope', 'biography', '$sce', 'states', '$http',
+function modalController($scope, biography, $sce, states, $http) {
     $scope.biography = biography;
     $scope.states = states;
 
+    // Initialize the biography
     if ( typeof biography.bio === 'string' ) {
         $scope.biography.bio = $sce.trustAsHtml(biography.bio);
     }
+
+    /**
+     * Register the registrant
+     *
+     * @param  {object} registrant
+     * @return {void}
+     */
+    $scope.register = function register(registrant) {
+        // We're waiting for the server
+        $scope.waitingForServer = true;
+
+        // Post the request
+        $http.post('/register', registrant)
+        .then(function success(response) {
+            console.log('SUCCUESS', response);
+        })
+        .catch(function error(response) {
+            console.log('ERROR', response);
+        })
+        .finally(function finally() {
+            // We're no longer waiting for the server
+            $scope.waitingForServer = false;
+        });
+    };
 }])
 
 .constant('states', [

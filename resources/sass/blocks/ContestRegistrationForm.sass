@@ -5,6 +5,21 @@
     +element('field')
         padding: 0.5em
 
+    +element('field-error')
+        & > label
+            color: $red !important
+        & > input
+            border-color: $red !important
+        & > input[type="checkbox"] + label
+            background-image: url(/images/checkbox-error.png) !important
+
+    +element('error-text')
+        text-align: center
+        color: $red
+        font-weight: bold
+        text-transform: uppercase
+        padding: 1em
+
     +element('label')
         display: block
         font-weight: 700
