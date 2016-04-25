@@ -1,0 +1,23 @@
+{
+  "name": "rkf2016",
+  "description": "Robin Kessinger Festival 2016",
+  "main": "public/index.html",
+  "authors": [
+    "Karl Hepler <karl.hepler@gmail.com>"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "angularjs#^1.5.5",
+    "angular-popeye": "^1.0.5",
+    "ngSmoothScroll": "^2.0.0"
+  }
+}

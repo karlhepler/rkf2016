@@ -1,0 +1,72 @@
+/** BUTTONS */
+button
+    display: inline-block
+    background-color: $red
+    border: 0.25em solid
+    padding: 0.5em 0.75em
+    text-transform: uppercase
+    color: $white
+    font-family: 'Passion One', sans-serif
+    font-weight: 400
+    font-size: 3vw
+    letter-spacing: 0.05em
+    cursor: pointer
+    transition: background-color 0.3s ease-out
+    &:hover
+        background-color: lighten($red, 5)
+    &:focus
+        outline: none
+    +big
+        font-size: 30.72px
+
+/** HORIZONTAL RULE */
+hr
+    @extend .grid-container
+    display: block
+    position: relative
+    background-image: url(images/logo.png)
+    height: 5vw
+    background-size: 5vw
+    background-position: center
+    background-color: transparent
+    margin-top: 2vw
+    margin-bottom: 2vw
+    +big
+        margin-top: 20.48px
+        margin-bottom: 20.48px
+        height: 51.1875px
+        background-size: 51.1875px
+
+    &:before
+        width: calc(50% - 5vw)
+        left: 0
+        height: 1px
+        background-color: rgba(0,0,0,0.5)
+        display: block
+        position: absolute
+        content: ''
+        margin-top: 2.5vw
+        +big
+            width: calc(50% - 51.1875px)
+            margin-top: 25.6px
+
+    &:after
+        width: calc(50% - 5vw)
+        right: 0
+        height: 1px
+        background-color: rgba(0,0,0,0.5)
+        display: block
+        position: absolute
+        content: ''
+        margin-top: 2.5vw
+        +big
+            width: calc(50% - 51.1875px)
+            margin-top: 25.6px
+
+a
+    color: $red
+    transition: color 0.3s ease-out
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+        color: darken($red, 10)

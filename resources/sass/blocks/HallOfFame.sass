@@ -1,0 +1,38 @@
+.HallOfFame
+
+    position: relative
+    margin-top: 4vw
+    border: 0.2em solid $yellow
+    padding: 10vw 10vw 8vw
+    background-color: rgba(255,255,255,0.2)
+    +big
+        margin-top: 40.96px
+
+    +element('title')
+        width: 40vw
+        top: -4vw
+        position: absolute
+        text-transform: uppercase
+        color: $white
+        background-color: $yellow
+        display: inline-block
+        padding: 0.25em 0.5em
+        left: 0
+        right: 0
+        margin: 0 auto
+        +big
+            top: -40.96px
+            width: 409.594px
+
+    +element('winners')
+        list-style: none
+        font-size: 5vw
+        text-align: center
+        +big
+            font-size: 51.2px
+
+    +element('winner')
+        font-family: 'Alegreya Sans', sans-serif
+
+    +element('year')
+        font-family: 'Passion One', sans-serif

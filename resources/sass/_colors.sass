@@ -1,0 +1,30 @@
+$grey: #3D4C53
+$red: #E64A45
+$blue: #4DB3B3
+$orange: #E6772E
+$yellow: #F2C249
+$darkyellow: darken($yellow, 20)
+$black: darken($grey, 15)
+$white: #FFFFFF
+
+.darkyellow
+    color: $darkyellow
+.grey
+    color: $grey
+.red
+    color: $red
+.blue
+    color: $blue
+.orange
+    color: $orange
+.yellow
+    color: $yellow
+.black
+    color: $black
+.white
+    color: $white
+
+=linear-gradient($direction, $color-stops...)
+    background: nth(nth($color-stops, 1), 1)
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops)
+    background: linear-gradient($direction, $color-stops)
