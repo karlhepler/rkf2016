@@ -20,6 +20,7 @@
     "angular-popeye": "^1.0.5",
     "ngSmoothScroll": "^2.0.0",
     "angular-pageslide-directive": "^1.1.1",
-    "angular-animate": "^1.5.5"
+    "angular-animate": "^1.5.5",
+    "ngMask": "angular-mask#^3.0.16"
   }
 }

@@ -1,1 +1,83 @@
 <h1>Contest Registration</h1>
+<form class="ContestRegistrationForm" name="forms.contestRegistrationForm" ng-submit="forms.contestRegistrationForm.$valid && register()" novalidate>
+
+    <div class="grid-row">
+        <div class="grid-half">
+           <!-- Name -->
+           <div class="ContestRegistrationForm__field">
+               <label class="ContestRegistrationForm__label" for="name">Name</label>
+               <input class="ContestRegistrationForm__input" id="name" name="name" type="text" placeholder="John Doe" ng-model="registrant.name" autofocus required>
+           </div> 
+        </div>
+        <div class="grid-half">
+           <!-- Email -->
+           <div class="ContestRegistrationForm__field">
+               <label class="ContestRegistrationForm__label" for="email">Email</label>
+               <input class="ContestRegistrationForm__input" id="email" name="email" type="email" placeholder="email@address.com" ng-model="registrant.email" required>
+           </div> 
+        </div>
+    </div>
+
+    <div class="grid-row">
+        <div class="grid-half">
+            <!-- Phone -->
+            <div class="ContestRegistrationForm__field">
+                <label class="ContestRegistrationForm__label" for="phone">Phone Number</label>
+                <input class="ContestRegistrationForm__input" id="phone" name="phone" type="text" ng-model="registrant.phone" placeholder="(###) ###-####" mask="(999) 999-9999" required>
+            </div>
+        </div>
+        <div class="grid-half">
+            <!-- DOB -->
+            <div class="ContestRegistrationForm__field">
+                <label class="ContestRegistrationForm__label" for="dob">Date of Birth</label>
+                <input class="ContestRegistrationForm__input" id="dob" name="dob" type="text" ng-model="registrant.dob" placeholder="MM/DD/YYYY" mask="19/39/2999" required>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Address -->
+    <div class="ContestRegistrationForm__address">
+        <!-- Street -->
+        <div class="ContestRegistrationForm__field">
+            <label class="ContestRegistrationForm__label" for="street">Street</label>
+            <input class="ContestRegistrationForm__input" id="street" name="street" type="text" placeholder="123 Road Lane" ng-model="registrant.address.street" required>
+        </div>
+
+        <div class="grid-row">
+            <div class="grid-third">
+                <!-- City -->
+                <div class="ContestRegistrationForm__field">
+                    <label class="ContestRegistrationForm__label" for="city">City</label>
+                    <input class="ContestRegistrationForm__input" id="city" name="city" type="text" placeholder="City" ng-model="registrant.address.city" required>
+                </div>
+            </div>
+            <div class="grid-third">
+                <!-- State -->
+                <div class="ContestRegistrationForm__field">
+                    <label class="ContestRegistrationForm__label" for="state">State</label>
+                    <select class="ContestRegistrationForm__input" name="state" id="state" ng-model="registrant.address.state" ng-options="state.name for state in states" required></select>
+                </div>
+            </div>
+            <div class="grid-third">
+                <!-- Zip -->
+                <div class="ContestRegistrationForm__field">
+                    <label class="ContestRegistrationForm__label" for="zip">Zip Code</label>
+                    <input class="ContestRegistrationForm__input" id="zip" name="zip" type="text" placeholder="12345" ng-model="registrant.address.zip" mask="99999" required>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Official Rules -->
+    <div class="ContestRegistrationForm__field">
+        <input class="ContestRegistrationForm__input" name="agree_rules" id="agree_rules" type="checkbox" ng-model="registrant.agree_rules" required>
+        <label class="ContestRegistrationForm__label" for="agree_rules">I agree to the <a modal tpl="rules" href="#">official rules</a>.</label>
+    </div>
+
+    <!-- Submit -->
+    <div class="ContestRegistrationForm__buttons">
+        <button class="ContestRegistrationForm__button" type="button">Cancel</button>
+        <button class="ContestRegistrationForm__button" type="submit">Submit</button>
+    </div>
+
+</form>

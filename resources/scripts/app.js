@@ -5,7 +5,8 @@ angular.module('rkf2016', [
     'rkf2016.modal',
     'smoothScroll',
     'pageslide-directive',
-    'ngAnimate'
+    'ngAnimate',
+    'ngMask'
 ])
 
 .controller('pageController', [
