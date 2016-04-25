@@ -31,7 +31,7 @@ var options = {
 	autoprefixer: {},
 	plumber: {
 		errorHandler: function handleGulpErrors(err) {
-			notify.onError({
+			plugins.notify.onError({
 				title: `${err.name}: ${err.plugin}`,
 				message: "<%= error.message %>"
 			})(err);
@@ -104,7 +104,9 @@ gulp.task('watch', ['php-sync', 'default'], function gulpWatch() {
 	// Watch templates, blade, & script builds
 	gulp.watch([
 		'public/index.html',
-		'public/app.js'
+		'public/app.js',
+		'public/templates/**/*.html',
+		'public/images/**/*.*'
 	], plugins.browserSync.reload);
 });
 
