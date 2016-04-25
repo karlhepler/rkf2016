@@ -35837,12 +35837,17 @@ angular.module('ngAnimate', [])
  * Initialize the Angular Module
  */
 angular.module('rkf2016', ['rkf2016.modal', 'smoothScroll', 'pageslide-directive', 'ngAnimate']).controller('pageController', ['$scope', 'biographies', function pageController($scope, biographies) {
+
     $scope.biographies = biographies;
+    $scope.currentYear = new Date().getFullYear();
+    $scope.showMenu = false;
 }]);
 'use strict';
 
 WebFontConfig = {
-    google: { families: ['Luckiest+Guy::latin', 'Amatic+SC::latin', 'Passion+One:400,700:latin', 'Alegreya+Sans:400,700:latin'] }
+    google: {
+        families: ['Luckiest+Guy::latin', 'Amatic+SC::latin', 'Passion+One:400,700:latin', 'Alegreya+Sans:400,700:latin']
+    }
 };
 (function () {
     var wf = document.createElement('script');
@@ -35852,6 +35857,44 @@ WebFontConfig = {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
 })();
+'use strict';
+
+angular.module('rkf2016').constant('biographies', [{
+    performer: true,
+    name: 'Robin Kessinger',
+    image: 'robin.jpg',
+    bio: '\n        This is some great text about Robin!\n    ',
+    link: 'https://www.facebook.com/robinkessingerGuitar'
+}, {
+    name: 'Wayne Henderson',
+    performer: true
+}, {
+    name: 'Robert Shafer',
+    performer: true
+}, {
+    name: 'Dan Kessinger',
+    performer: true
+}, {
+    name: 'Roger Rabalais',
+    performer: true
+}, {
+    name: 'Jodi Harbin',
+    performer: true
+}, {
+    name: 'Tim Harbin',
+    performer: true
+}, {
+    name: 'Karl Hepler',
+    performer: true
+}, {
+    name: 'Jesse Smith',
+    performer: true
+}, {
+    name: 'Allen Shadd',
+    performer: true
+}, {
+    name: 'Craig Southern'
+}]);
 'use strict';
 
 angular.module('rkf2016.modal', ['pathgather.popeye']).directive('modal', function modalDirective() {
@@ -35889,50 +35932,11 @@ angular.module('rkf2016.modal', ['pathgather.popeye']).directive('modal', functi
              * @return {mixed}
              */
             function getTemplateUrl() {
-                return scope.biography ? '/templates/modals/bio.html' : '/templates/modals/' + scope.tpl + '.html';
+                return scope.biography ? '/templates/modals/biography.html' : '/templates/modals/' + scope.tpl + '.html';
             }
         }
     };
 }).controller('modalController', ['$scope', 'biography', function modalController($scope, biography) {
     $scope.biography = biography;
 }]);
-'use strict';
-
-angular.module('rkf2016').constant('biographies', [{
-    name: 'Robin Kessinger',
-    performer: true
-}, {
-    name: 'Wayne Henderson',
-    performer: true
-}, {
-    name: 'Robert Shafer',
-    performer: true
-}, {
-    name: 'Dan Kessinger',
-    performer: true
-}, {
-    name: 'Roger Rabalais',
-    performer: true
-}, {
-    name: 'Jodi Harbin',
-    performer: true
-}, {
-    name: 'Tim Harbin',
-    performer: true
-}, {
-    name: 'Karl Hepler',
-    performer: true
-}, {
-    name: 'Jesse Smith',
-    performer: true
-}, {
-    name: 'Allen Shadd',
-    performer: true
-}, {
-    name: 'Craig Southern'
-}, {
-    name: 'Fret & Fiddle'
-}, {
-    name: 'Walnut Valley Festival'
-}]);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnN0YW50cy9iaW9ncmFwaGllcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLFFBQVEsTUFBUixDQUFlLFNBQWYsRUFBMEIsUUFBMUIsQ0FBbUMsYUFBbkMsRUFBa0QsQ0FDbEQ7QUFDSSxVQUFNLGlCQURWO0FBRUksZUFBVztBQUZmLENBRGtELEVBS2xEO0FBQ0ksVUFBTSxpQkFEVjtBQUVJLGVBQVc7QUFGZixDQUxrRCxFQVNsRDtBQUNJLFVBQU0sZUFEVjtBQUVJLGVBQVc7QUFGZixDQVRrRCxFQWFsRDtBQUNJLFVBQU0sZUFEVjtBQUVJLGVBQVc7QUFGZixDQWJrRCxFQWlCbEQ7QUFDSSxVQUFNLGdCQURWO0FBRUksZUFBVztBQUZmLENBakJrRCxFQXFCbEQ7QUFDSSxVQUFNLGFBRFY7QUFFSSxlQUFXO0FBRmYsQ0FyQmtELEVBeUJsRDtBQUNJLFVBQU0sWUFEVjtBQUVJLGVBQVc7QUFGZixDQXpCa0QsRUE2QmxEO0FBQ0ksVUFBTSxhQURWO0FBRUksZUFBVztBQUZmLENBN0JrRCxFQWlDbEQ7QUFDSSxVQUFNLGFBRFY7QUFFSSxlQUFXO0FBRmYsQ0FqQ2tELEVBcUNsRDtBQUNJLFVBQU0sYUFEVjtBQUVJLGVBQVc7QUFGZixDQXJDa0QsRUF5Q2xEO0FBQ0ksVUFBTTtBQURWLENBekNrRCxFQTRDbEQ7QUFDSSxVQUFNO0FBRFYsQ0E1Q2tELEVBK0NsRDtBQUNJLFVBQU07QUFEVixDQS9Da0QsQ0FBbEQiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiYW5ndWxhci5tb2R1bGUoJ3JrZjIwMTYnKS5jb25zdGFudCgnYmlvZ3JhcGhpZXMnLCBbXG57XG4gICAgbmFtZTogJ1JvYmluIEtlc3NpbmdlcicsXG4gICAgcGVyZm9ybWVyOiB0cnVlXG59LFxue1xuICAgIG5hbWU6ICdXYXluZSBIZW5kZXJzb24nLFxuICAgIHBlcmZvcm1lcjogdHJ1ZVxufSxcbntcbiAgICBuYW1lOiAnUm9iZXJ0IFNoYWZlcicsXG4gICAgcGVyZm9ybWVyOiB0cnVlXG59LFxue1xuICAgIG5hbWU6ICdEYW4gS2Vzc2luZ2VyJyxcbiAgICBwZXJmb3JtZXI6IHRydWVcbn0sXG57XG4gICAgbmFtZTogJ1JvZ2VyIFJhYmFsYWlzJyxcbiAgICBwZXJmb3JtZXI6IHRydWVcbn0sXG57XG4gICAgbmFtZTogJ0pvZGkgSGFyYmluJyxcbiAgICBwZXJmb3JtZXI6IHRydWVcbn0sXG57XG4gICAgbmFtZTogJ1RpbSBIYXJiaW4nLFxuICAgIHBlcmZvcm1lcjogdHJ1ZVxufSxcbntcbiAgICBuYW1lOiAnS2FybCBIZXBsZXInLFxuICAgIHBlcmZvcm1lcjogdHJ1ZVxufSxcbntcbiAgICBuYW1lOiAnSmVzc2UgU21pdGgnLFxuICAgIHBlcmZvcm1lcjogdHJ1ZVxufSxcbntcbiAgICBuYW1lOiAnQWxsZW4gU2hhZGQnLFxuICAgIHBlcmZvcm1lcjogdHJ1ZVxufSxcbntcbiAgICBuYW1lOiAnQ3JhaWcgU291dGhlcm4nXG59LFxue1xuICAgIG5hbWU6ICdGcmV0ICYgRmlkZGxlJ1xufSxcbntcbiAgICBuYW1lOiAnV2FsbnV0IFZhbGxleSBGZXN0aXZhbCdcbn1cbl0pOyJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUdBLFFBQVEsTUFBUixDQUFlLFNBQWYsRUFBMEIsQ0FDdEIsZUFEc0IsRUFFdEIsY0FGc0IsRUFHdEIscUJBSHNCLEVBSXRCLFdBSnNCLENBQTFCLEVBT0MsVUFQRCxDQU9ZLGdCQVBaLEVBTzhCLENBQzlCLFFBRDhCLEVBQ3BCLGFBRG9CLEVBRTlCLFNBQVMsY0FBVCxDQUF3QixNQUF4QixFQUFnQyxXQUFoQyxFQUE2Qzs7QUFFekMsV0FBTyxXQUFQLEdBQXFCLFdBQXJCO0FBQ0EsV0FBTyxXQUFQLEdBQXFCLElBQUksSUFBSixHQUFXLFdBQVgsRUFBckI7QUFDQSxXQUFPLFFBQVAsR0FBa0IsS0FBbEI7QUFFSCxDQVI2QixDQVA5QiIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEluaXRpYWxpemUgdGhlIEFuZ3VsYXIgTW9kdWxlXG4gKi9cbmFuZ3VsYXIubW9kdWxlKCdya2YyMDE2JywgW1xuICAgICdya2YyMDE2Lm1vZGFsJyxcbiAgICAnc21vb3RoU2Nyb2xsJyxcbiAgICAncGFnZXNsaWRlLWRpcmVjdGl2ZScsXG4gICAgJ25nQW5pbWF0ZSdcbl0pXG5cbi5jb250cm9sbGVyKCdwYWdlQ29udHJvbGxlcicsIFtcbickc2NvcGUnLCAnYmlvZ3JhcGhpZXMnLFxuZnVuY3Rpb24gcGFnZUNvbnRyb2xsZXIoJHNjb3BlLCBiaW9ncmFwaGllcykge1xuXG4gICAgJHNjb3BlLmJpb2dyYXBoaWVzID0gYmlvZ3JhcGhpZXM7XG4gICAgJHNjb3BlLmN1cnJlbnRZZWFyID0gbmV3IERhdGUoKS5nZXRGdWxsWWVhcigpO1xuICAgICRzY29wZS5zaG93TWVudSA9IGZhbHNlO1xuXG59XSk7Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

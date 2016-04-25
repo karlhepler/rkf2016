@@ -1,10 +1,12 @@
 WebFontConfig = {
-    google: { families: [
-        'Luckiest+Guy::latin',
-        'Amatic+SC::latin',
-        'Passion+One:400,700:latin',
-        'Alegreya+Sans:400,700:latin'
-    ] }
+    google: {
+        families: [
+            'Luckiest+Guy::latin',
+            'Amatic+SC::latin',
+            'Passion+One:400,700:latin',
+            'Alegreya+Sans:400,700:latin'
+        ]
+    }
 };
 (function() {
     var wf = document.createElement('script');

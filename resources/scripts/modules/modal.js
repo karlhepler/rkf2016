@@ -36,7 +36,7 @@ function modalDirective() {
              * @return {mixed}
              */
             function getTemplateUrl() {
-                return scope.biography ? '/templates/modals/bio.html' : `/templates/modals/${scope.tpl}.html`;
+                return scope.biography ? '/templates/modals/biography.html' : `/templates/modals/${scope.tpl}.html`;
             }
         }
     };

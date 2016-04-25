@@ -11,5 +11,9 @@ angular.module('rkf2016', [
 .controller('pageController', [
 '$scope', 'biographies',
 function pageController($scope, biographies) {
+
     $scope.biographies = biographies;
+    $scope.currentYear = new Date().getFullYear();
+    $scope.showMenu = false;
+
 }]);

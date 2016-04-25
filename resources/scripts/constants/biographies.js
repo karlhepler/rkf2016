@@ -1,7 +1,12 @@
 angular.module('rkf2016').constant('biographies', [
 {
+    performer: true,
     name: 'Robin Kessinger',
-    performer: true
+    image: 'robin.jpg',
+    bio: `
+        This is some great text about Robin!
+    `,
+    link: 'https://www.facebook.com/robinkessingerGuitar'
 },
 {
     name: 'Wayne Henderson',
@@ -41,11 +46,5 @@ angular.module('rkf2016').constant('biographies', [
 },
 {
     name: 'Craig Southern'
-},
-{
-    name: 'Fret & Fiddle'
-},
-{
-    name: 'Walnut Valley Festival'
 }
 ]);
