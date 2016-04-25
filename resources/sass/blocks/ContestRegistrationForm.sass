@@ -1,0 +1,44 @@
+.ContestRegistrationForm
+    
+    @extend p
+
+    +element('field')
+        padding: 0.5em
+
+    +element('label')
+        display: block
+        font-weight: 700
+        color: $grey
+        margin-bottom: 0.5em
+
+    +element('input')
+        border-bottom: 0.1em solid $grey
+        padding: 0 0 0.1em 0
+        width: 100%
+        transition: border-bottom-color 0.3s ease-out
+        margin-bottom: 0.5em
+        &:focus
+            outline: none
+            border-bottom-color: $blue
+        &[type="checkbox"]
+            & + label
+                display: inline
+        &#state
+            background-image: url(/images/caret.png)
+            background-position: right center
+            background-size: 1em
+            border-radius: 0
+
+    +element('address')
+        margin-top: 2em
+        margin-bottom: 1em
+
+    +element('buttons')
+        margin-top: 1em
+
+    +element('button')
+        &:first-of-type
+            background-color: $white
+            color: $grey
+        &:last-of-type
+            border-color: $red

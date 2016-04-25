@@ -39,7 +39,7 @@
     <div class="ContestRegistrationForm__address">
         <!-- Street -->
         <div class="ContestRegistrationForm__field">
-            <label class="ContestRegistrationForm__label" for="street">Street</label>
+            <label class="ContestRegistrationForm__label" for="street">Street Address</label>
             <input class="ContestRegistrationForm__input" id="street" name="street" type="text" placeholder="123 Road Lane" ng-model="registrant.address.street" required>
         </div>
 
@@ -75,9 +75,9 @@
     </div>
 
     <!-- Submit -->
-    <div class="ContestRegistrationForm__buttons">
-        <button class="ContestRegistrationForm__button" type="button">Cancel</button>
-        <button class="ContestRegistrationForm__button" type="submit">Submit</button>
+    <div class="ContestRegistrationForm__buttons grid-row">
+        <button class="ContestRegistrationForm__button grid-half" type="button" ng-click="$close()">Cancel</button>
+        <button class="ContestRegistrationForm__button grid-half" type="submit">Submit</button>
     </div>
 
 </form>
