@@ -3,7 +3,8 @@
  */
 angular.module('rkf2016', [
     'rkf2016.modal',
-    'smoothScroll'
+    'smoothScroll',
+    'pageslide-directive'
 ])
 
 .controller('pageController', [

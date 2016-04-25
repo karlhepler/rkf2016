@@ -31396,12 +31396,299 @@ $provide.value("$locale", {
 	}]);
 
 }());
+angular.module('pageslide-directive', [])
+
+.directive('pageslide', ['$document', '$timeout',
+    function ($document, $timeout) {
+        var defaults = {};
+
+        return {
+            restrict: 'EAC',
+            transclude: false,
+            scope: {
+                psOpen: '=?',
+                psAutoClose: '=?',
+                psSide: '@',
+                psSpeed: '@',
+                psClass: '@',
+                psSize: '@',
+                psZindex: '@',
+                psSqueeze: '@',
+                psCloak: '@',
+                psPush: '@',
+                psContainer: '@',
+                psKeyListener: '@',
+                psBodyClass: '@'
+            },
+            link: function ($scope, el, attrs) {
+
+                /* Inspect */
+
+                //console.log($scope);
+                //console.log(el);
+                //console.log(attrs);
+
+                var param = {};
+
+                param.side = $scope.psSide || 'right';
+                param.speed = $scope.psSpeed || '0.5';
+                param.size = $scope.psSize || '300px';
+                param.zindex = $scope.psZindex || 1000;
+                param.className = $scope.psClass || 'ng-pageslide';
+                param.squeeze = Boolean($scope.psSqueeze) || false;
+                param.push = Boolean($scope.psPush) || false;
+                param.container = $scope.psContainer || false;
+                param.keyListener = Boolean($scope.psKeyListener) || false;
+                param.bodyClass = $scope.psBodyClass || false;
+
+                el.addClass(param.className);
+
+                /* DOM manipulation */
+
+                var content = null;
+                var slider = null;
+                var body = param.container ? document.getElementById(param.container) : document.body;
+
+                // TODO verify that we are meaning to use the param.className and not the param.bodyClass
+
+                function setBodyClass(value){
+                    if (param.bodyClass) {
+                        var bodyClass = param.className + '-body';
+                        var bodyClassRe = new RegExp(' ' + bodyClass + '-closed| ' + bodyClass + '-open');
+                        body.className = body.className.replace(bodyClassRe, '');
+                        body.className += ' ' + bodyClass + '-' + value;
+                    }
+                }
+
+                setBodyClass('closed');
+
+                slider = el[0];
+
+                // Check for div tag
+                if (slider.tagName.toLowerCase() !== 'div' &&
+                    slider.tagName.toLowerCase() !== 'pageslide')
+                    throw new Error('Pageslide can only be applied to <div> or <pageslide> elements');
+
+                // Check for content
+                if (slider.children.length === 0)
+                    throw new Error('You have to content inside the <pageslide>');
+
+                content = angular.element(slider.children);
+
+                /* Append */
+                body.appendChild(slider);
+
+                /* Style setup */
+                slider.style.zIndex = param.zindex;
+                slider.style.position = param.container !== false ? 'absolute' : 'fixed';
+                slider.style.width = 0;
+                slider.style.height = 0;
+                slider.style.transitionDuration = param.speed + 's';
+                slider.style.webkitTransitionDuration = param.speed + 's';
+                slider.style.transitionProperty = 'width, height';
+
+                if (param.squeeze) {
+                    body.style.position = 'absolute';
+                    body.style.transitionDuration = param.speed + 's';
+                    body.style.webkitTransitionDuration = param.speed + 's';
+                    body.style.transitionProperty = 'top, bottom, left, right';
+                }
+
+                switch (param.side) {
+                    case 'right':
+                        slider.style.height = attrs.psCustomHeight || '100%';
+                        slider.style.top = attrs.psCustomTop || '0px';
+                        slider.style.bottom = attrs.psCustomBottom || '0px';
+                        slider.style.right = attrs.psCustomRight || '0px';
+                        break;
+                    case 'left':
+                        slider.style.height = attrs.psCustomHeight || '100%';
+                        slider.style.top = attrs.psCustomTop || '0px';
+                        slider.style.bottom = attrs.psCustomBottom || '0px';
+                        slider.style.left = attrs.psCustomLeft || '0px';
+                        break;
+                    case 'top':
+                        slider.style.width = attrs.psCustomWidth || '100%';
+                        slider.style.left = attrs.psCustomLeft || '0px';
+                        slider.style.top = attrs.psCustomTop || '0px';
+                        slider.style.right = attrs.psCustomRight || '0px';
+                        break;
+                    case 'bottom':
+                        slider.style.width = attrs.psCustomWidth || '100%';
+                        slider.style.bottom = attrs.psCustomBottom || '0px';
+                        slider.style.left = attrs.psCustomLeft || '0px';
+                        slider.style.right = attrs.psCustomRight || '0px';
+                        break;
+                }
+
+
+                /* Closed */
+                function psClose(slider, param) {
+                    if (slider && slider.style.width !== 0) {
+                        content.css('display', 'none');
+                        switch (param.side) {
+                            case 'right':
+                                slider.style.width = '0px';
+                                if (param.squeeze) body.style.right = '0px';
+                                if (param.push) {
+                                    body.style.right = '0px';
+                                    body.style.left = '0px';
+                                }
+                                break;
+                            case 'left':
+                                slider.style.width = '0px';
+                                if (param.squeeze) body.style.left = '0px';
+                                if (param.push) {
+                                    body.style.left = '0px';
+                                    body.style.right = '0px';
+                                }
+                                break;
+                            case 'top':
+                                slider.style.height = '0px';
+                                if (param.squeeze) body.style.top = '0px';
+                                if (param.push) {
+                                    body.style.top = '0px';
+                                    body.style.bottom = '0px';
+                                }
+                                break;
+                            case 'bottom':
+                                slider.style.height = '0px';
+                                if (param.squeeze) body.style.bottom = '0px';
+                                if (param.push) {
+                                    body.style.bottom = '0px';
+                                    body.style.top = '0px';
+                                }
+                                break;
+                        }
+                    }
+                    $scope.psOpen = false;
+
+                    if (param.keyListener) {
+                        $document.off('keydown', keyListener);
+                    }
+
+                    setBodyClass('closed');
+                }
+
+                /* Open */
+                function psOpen(slider, param) {
+                    if (slider.style.width !== 0) {
+                        switch (param.side) {
+                            case 'right':
+                                slider.style.width = param.size;
+                                if (param.squeeze) body.style.right = param.size;
+                                if (param.push) {
+                                    body.style.right = param.size;
+                                    body.style.left = '-' + param.size;
+                                }
+                                break;
+                            case 'left':
+                                slider.style.width = param.size;
+                                if (param.squeeze) body.style.left = param.size;
+                                if (param.push) {
+                                    body.style.left = param.size;
+                                    body.style.right = '-' + param.size;
+                                }
+                                break;
+                            case 'top':
+                                slider.style.height = param.size;
+                                if (param.squeeze) body.style.top = param.size;
+                                if (param.push) {
+                                    body.style.top = param.size;
+                                    body.style.bottom = '-' + param.size;
+                                }
+                                break;
+                            case 'bottom':
+                                slider.style.height = param.size;
+                                if (param.squeeze) body.style.bottom = param.size;
+                                if (param.push) {
+                                    body.style.bottom = param.size;
+                                    body.style.top = '-' + param.size;
+                                }
+                                break;
+                        }
+
+                        $timeout(function() {
+                            content.css('display', 'block');
+                        }, (param.speed * 1000));
+
+                        $scope.psOpen = true;
+
+                        if (param.keyListener) {
+                            $document.on('keydown', keyListener);
+                        }
+
+                        setBodyClass('open');
+                    }
+                }
+
+                function isFunction(functionToCheck) {
+                    var getType = {};
+                    return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+                }
+
+                /*
+                * Close the sidebar if the 'esc' key is pressed
+                * */
+
+                function keyListener(e) {
+                    var ESC_KEY = 27;
+                    var key = e.keyCode || e.which;
+
+                    if (key === ESC_KEY) {
+                        psClose(slider, param);
+                    }
+                }
+
+                /*
+                * Watchers
+                * */
+
+                $scope.$watch('psOpen', function(value) {
+                    if (!!value) {
+                        psOpen(slider, param);
+                    } else {
+                        psClose(slider, param);
+                    }
+                });
+
+                $scope.$watch('psSize', function(newValue, oldValue) {
+                    if (oldValue !== newValue) {
+                        param.size = newValue;
+                        psOpen(slider, param);
+                    }
+                });
+
+                /*
+                * Events
+                * */
+
+                $scope.$on('$destroy', function () {
+                    if (slider.parentNode === body) {
+                        body.removeChild(slider);
+                    }
+                });
+
+                if ($scope.psAutoClose) {
+                    $scope.$on('$locationChangeStart', function() {
+                        psClose(slider, param);
+                    });
+                    $scope.$on('$stateChangeStart', function() {
+                        psClose(slider, param);
+                    });
+
+                }
+            }
+        };
+    }
+]);
+
 'use strict';
 
 /**
  * Initialize the Angular Module
  */
-angular.module('rkf2016', ['rkf2016.modal', 'smoothScroll']).controller('pageController', ['$scope', function pageController($scope) {
+angular.module('rkf2016', ['rkf2016.modal', 'smoothScroll', 'pageslide-directive']).controller('pageController', ['$scope', function pageController($scope) {
     //
 }]);
 'use strict';
@@ -31455,4 +31742,4 @@ angular.module('rkf2016.modal', ['pathgather.popeye']).directive('modal', functi
 }).controller('modalController', ['$scope', function modalController($scope) {
     console.log('controller');
 }]);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vZHVsZXMvbW9kYWwuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxRQUFRLE1BQVIsQ0FBZSxlQUFmLEVBQWdDLENBQUMsbUJBQUQsQ0FBaEMsRUFFQyxTQUZELENBRVcsT0FGWCxFQUdBLFNBQVMsY0FBVCxHQUEwQjtBQUN0QixXQUFPO0FBQ0gsa0JBQVUsR0FEUDtBQUVILGVBQU87QUFDSCxtQkFBTztBQURKLFNBRko7QUFLSCxvQkFBWSxDQUFDLFFBQUQsRUFBVyxTQUFTLHdCQUFULENBQWtDLE1BQWxDLEVBQTBDO0FBQzdELGlCQUFLLFNBQUwsR0FBaUIsU0FBUyxTQUFULENBQW1CLFdBQW5CLEVBQWdDO0FBQzdDLHFCQUFLLEtBQUwsR0FBYSxPQUFPLFNBQVAsQ0FBaUI7QUFDMUIsaUNBQWEsV0FEYTtBQUUxQixnQ0FBWTtBQUZjLGlCQUFqQixDQUFiO0FBSUgsYUFMZ0IsQ0FLZixJQUxlLENBS1YsSUFMVSxDQUFqQjtBQU1ILFNBUFcsQ0FMVDtBQWFILGNBQU0sU0FBUyxrQkFBVCxDQUE0QixLQUE1QixFQUFtQyxJQUFuQyxFQUF5QyxLQUF6QyxFQUFnRCxJQUFoRCxFQUFzRDs7OztBQUl4RCxpQkFBSyxFQUFMLENBQVEsT0FBUixFQUFpQixVQUFTLENBQVQsRUFBWTtBQUN6QixrQkFBRSxjQUFGO0FBQ0EscUJBQUssU0FBTCxDQUFlLGdCQUFmO0FBQ0gsYUFIRDs7Ozs7OztBQVVBLHFCQUFTLGNBQVQsR0FBMEI7QUFDdEIsOENBQTRCLE1BQU0sR0FBbEM7QUFDSDtBQUNKO0FBOUJFLEtBQVA7QUFnQ0gsQ0FwQ0QsRUFzQ0MsVUF0Q0QsQ0FzQ1ksaUJBdENaLEVBc0MrQixDQUFDLFFBQUQsRUFDL0IsU0FBUyxlQUFULENBQXlCLE1BQXpCLEVBQWlDO0FBQzdCLFlBQVEsR0FBUixDQUFZLFlBQVo7QUFDSCxDQUg4QixDQXRDL0IiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiYW5ndWxhci5tb2R1bGUoJ3JrZjIwMTYubW9kYWwnLCBbJ3BhdGhnYXRoZXIucG9wZXllJ10pXG5cbi5kaXJlY3RpdmUoJ21vZGFsJywgXG5mdW5jdGlvbiBtb2RhbERpcmVjdGl2ZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgICByZXN0cmljdDogJ0EnLFxuICAgICAgICBzY29wZToge1xuICAgICAgICAgICAgJ3RwbCc6ICdAJ1xuICAgICAgICB9LFxuICAgICAgICBjb250cm9sbGVyOiBbJ1BvcGV5ZScsIGZ1bmN0aW9uIG1vZGFsRGlyZWN0aXZlQ29udHJvbGxlcihQb3BleWUpIHtcbiAgICAgICAgICAgIHRoaXMub3Blbk1vZGFsID0gZnVuY3Rpb24gb3Blbk1vZGFsKHRlbXBsYXRlVXJsKSB7XG4gICAgICAgICAgICAgICAgdGhpcy5tb2RhbCA9IFBvcGV5ZS5vcGVuTW9kYWwoe1xuICAgICAgICAgICAgICAgICAgICB0ZW1wbGF0ZVVybDogdGVtcGxhdGVVcmwsXG4gICAgICAgICAgICAgICAgICAgIGNvbnRyb2xsZXI6ICdtb2RhbENvbnRyb2xsZXInXG4gICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICB9LmJpbmQodGhpcyk7XG4gICAgICAgIH1dLFxuICAgICAgICBsaW5rOiBmdW5jdGlvbiBtb2RhbERpcmVjdGl2ZUxpbmsoc2NvcGUsIGVsZW0sIGF0dHJzLCBjdHJsKSB7XG4gICAgICAgICAgICAvKipcbiAgICAgICAgICAgICAqIE9wZW4gbW9kYWwgb24gY2xpY2tcbiAgICAgICAgICAgICAqL1xuICAgICAgICAgICAgZWxlbS5vbignY2xpY2snLCBmdW5jdGlvbihlKSB7XG4gICAgICAgICAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgICAgICAgICAgIGN0cmwub3Blbk1vZGFsKGdldFRlbXBsYXRlVXJsKCkpO1xuICAgICAgICAgICAgfSk7XG5cbiAgICAgICAgICAgIC8qKlxuICAgICAgICAgICAgICogR2V0IHRoZSBmdWxsLXF1YWxpZmllZCB0ZW1wbGF0ZSB1cmxcbiAgICAgICAgICAgICAqXG4gICAgICAgICAgICAgKiBAcmV0dXJuIHttaXhlZH1cbiAgICAgICAgICAgICAqL1xuICAgICAgICAgICAgZnVuY3Rpb24gZ2V0VGVtcGxhdGVVcmwoKSB7XG4gICAgICAgICAgICAgICAgcmV0dXJuIGAvdGVtcGxhdGVzL21vZGFscy8ke3Njb3BlLnRwbH0uaHRtbGA7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9O1xufSlcblxuLmNvbnRyb2xsZXIoJ21vZGFsQ29udHJvbGxlcicsIFsnJHNjb3BlJyxcbmZ1bmN0aW9uIG1vZGFsQ29udHJvbGxlcigkc2NvcGUpIHtcbiAgICBjb25zb2xlLmxvZygnY29udHJvbGxlcicpO1xufV0pOyJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUdBLFFBQVEsTUFBUixDQUFlLFNBQWYsRUFBMEIsQ0FDdEIsZUFEc0IsRUFFdEIsY0FGc0IsRUFHdEIscUJBSHNCLENBQTFCLEVBTUMsVUFORCxDQU1ZLGdCQU5aLEVBTThCLENBQzlCLFFBRDhCLEVBRTlCLFNBQVMsY0FBVCxDQUF3QixNQUF4QixFQUFnQzs7QUFFL0IsQ0FKNkIsQ0FOOUIiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBJbml0aWFsaXplIHRoZSBBbmd1bGFyIE1vZHVsZVxuICovXG5hbmd1bGFyLm1vZHVsZSgncmtmMjAxNicsIFtcbiAgICAncmtmMjAxNi5tb2RhbCcsXG4gICAgJ3Ntb290aFNjcm9sbCcsXG4gICAgJ3BhZ2VzbGlkZS1kaXJlY3RpdmUnXG5dKVxuXG4uY29udHJvbGxlcigncGFnZUNvbnRyb2xsZXInLCBbXG4nJHNjb3BlJyxcbmZ1bmN0aW9uIHBhZ2VDb250cm9sbGVyKCRzY29wZSkge1xuICAgIC8vXG59XSk7Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9
