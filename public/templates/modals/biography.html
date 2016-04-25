@@ -1,7 +1,9 @@
 <h1>{{ biography.name }}</h1>
 <div style="background-image: url(/images/bios/{{ biography.image }})" class="image"></div>
-<p>{{ biography.bio }}</p>
-<hr>
-<div class="align-center">
-    <a href="https://www.facebook.com/robinkessingerGuitar" target="_blank" class="button">Learn More</a>
+<p ng-bind-html="biography.bio"></p>
+<div ng-if="biography.link">
+    <hr>
+    <div class="align-center">
+        <a href="{{ biography.link }}" target="_blank" class="button">Learn More</a>
+    </div>
 </div>

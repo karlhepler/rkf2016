@@ -15,7 +15,7 @@ function modalDirective() {
                     controller: 'modalController',
                     resolve: {
                         biography: function() {
-                            return biography;
+                            return biography || {};
                         }
                     }
                 });
@@ -42,7 +42,12 @@ function modalDirective() {
     };
 })
 
-.controller('modalController', ['$scope', 'biography',
-function modalController($scope, biography) {
+.controller('modalController', [
+'$scope', 'biography', '$sce',
+function modalController($scope, biography, $sce) {
     $scope.biography = biography;
+
+    if ( typeof biography.bio === 'string' ) {
+        $scope.biography.bio = $sce.trustAsHtml(biography.bio);
+    }
 }]);
