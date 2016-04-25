@@ -10,6 +10,11 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="robots" content="noindex, nofollow">
     <meta http-equiv="X-Frame-Options" content="deny">
+    <meta property="og:url" content="http://www.robinkessingerfestival.org" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Robin Kessinger Festival & Workshops" />
+    <meta property="og:description" content="Home of the west virginia state flatpick guitar contest & part of heritage farm museum and village's \"way back\" music weekend." />
+    <meta property="og:image" content="http://www.robinkessingerfestival.org/images/fb.png" />
     <link rel="stylesheet" href="/app.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
