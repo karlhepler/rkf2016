@@ -43,11 +43,11 @@ function modalDirective() {
 })
 
 .controller('modalController', [
-'$scope', 'biography', '$sce', 'states', '$http',
-function modalController($scope, biography, $sce, states, $http) {
+'$scope', 'biography', '$sce', 'states', '$http', 'Popeye',
+function modalController($scope, biography, $sce, states, $http, Popeye) {
     $scope.biography = biography;
     $scope.states = states;
-
+    
     // Initialize the biography
     if ( typeof biography.bio === 'string' ) {
         $scope.biography.bio = $sce.trustAsHtml(biography.bio);
@@ -66,12 +66,16 @@ function modalController($scope, biography, $sce, states, $http) {
         // Post the request
         $http.post('/register', registrant)
         .then(function success(response) {
-            console.log('SUCCUESS', response);
+            // Open the thank you modal
+            Popeye.openModal({
+                templateUrl: '/templates/modals/thank-you.html'
+            });
         })
         .catch(function error(response) {
             console.log('ERROR', response);
+            // INVALIDATE FIELDS
         })
-        .finally(function finally() {
+        .finally(function done() {
             // We're no longer waiting for the server
             $scope.waitingForServer = false;
         });
