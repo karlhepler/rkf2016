@@ -5,13 +5,19 @@ function modalDirective() {
     return {
         restrict: 'A',
         scope: {
-            'tpl': '@'
+            'tpl': '@?',
+            'biography': '=?'
         },
         controller: ['Popeye', function modalDirectiveController(Popeye) {
-            this.openModal = function openModal(templateUrl) {
+            this.openModal = function openModal(templateUrl, biography) {
                 this.modal = Popeye.openModal({
                     templateUrl: templateUrl,
-                    controller: 'modalController'
+                    controller: 'modalController',
+                    resolve: {
+                        biography: function() {
+                            return biography;
+                        }
+                    }
                 });
             }.bind(this);
         }],
@@ -21,7 +27,7 @@ function modalDirective() {
              */
             elem.on('click', function(e) {
                 e.preventDefault();
-                ctrl.openModal(getTemplateUrl());
+                ctrl.openModal(getTemplateUrl(), scope.biography);
             });
 
             /**
@@ -30,13 +36,13 @@ function modalDirective() {
              * @return {mixed}
              */
             function getTemplateUrl() {
-                return `/templates/modals/${scope.tpl}.html`;
+                return scope.biography ? '/templates/modals/bio.html' : `/templates/modals/${scope.tpl}.html`;
             }
         }
     };
 })
 
-.controller('modalController', ['$scope',
-function modalController($scope) {
-    console.log('controller');
+.controller('modalController', ['$scope', 'biography',
+function modalController($scope, biography) {
+    $scope.biography = biography;
 }]);

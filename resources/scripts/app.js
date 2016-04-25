@@ -4,11 +4,12 @@
 angular.module('rkf2016', [
     'rkf2016.modal',
     'smoothScroll',
-    'pageslide-directive'
+    'pageslide-directive',
+    'ngAnimate'
 ])
 
 .controller('pageController', [
-'$scope',
-function pageController($scope) {
-    //
+'$scope', 'biographies',
+function pageController($scope, biographies) {
+    $scope.biographies = biographies;
 }]);
