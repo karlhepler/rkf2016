@@ -15,6 +15,11 @@
             <h4 class="red">How to Enter</h4>
             <br>
             <p><span class="smaller">Entry fee is $10 paid at the time of registration via mail.</span></p>
+            <p><strong>RKF CONTEST ENTRY</strong><br>
+            c/o Kayce Gentry<br>
+            145 Clarkson Run<br>
+            Spencer WV, 25276</p>
+            
             <p><a modal tpl="rules" href="#">Click here</a> to read the official rules.</p>
             <button modal tpl="register">Register Now</button>
         </div>
