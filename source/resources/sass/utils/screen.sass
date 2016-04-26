@@ -5,3 +5,8 @@
 =mobile
     @media screen and (max-width: 425px)
         @content
+
+.show-mobile
+    display: none
+    +mobile
+        display: block

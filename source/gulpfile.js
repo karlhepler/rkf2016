@@ -103,7 +103,7 @@ gulp.task('watch', ['php-sync', 'default'], function gulpWatch() {
 
 	// Watch templates, blade, & script builds
 	gulp.watch([
-		'views/index.blade.php',
+		'views/**/*.blade.php',
 		'public/app.js',
 		'public/templates/**/*.html',
 		'public/images/**/*.*'

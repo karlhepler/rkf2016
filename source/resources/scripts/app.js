@@ -10,11 +10,14 @@ angular.module('rkf2016', [
 ])
 
 .controller('pageController', [
-'$scope', 'biographies',
-function pageController($scope, biographies) {
+'$scope', 'biographies', '$window',
+function pageController($scope, biographies, $window) {
 
     $scope.biographies = biographies;
     $scope.currentYear = new Date().getFullYear();
     $scope.showMenu = false;
+    $scope.isMobile = function isMobile() {
+        return $window.innerWidth <= 425;
+    };
 
 }]);

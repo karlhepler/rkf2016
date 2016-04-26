@@ -1,4 +1,11 @@
 .popeye-modal
+    +mobile
+        width: 90% !important
+        padding: 5% !important
+    & > .popeye-close-modal
+        +mobile
+            top: 0
+            right: 3%
     
     h1
         @extend h3
@@ -9,6 +16,8 @@
         background-size: cover
         background-position: top center
         margin-bottom: 2em
+        +mobile
+            height: 40vw
 
     .button
         border: none

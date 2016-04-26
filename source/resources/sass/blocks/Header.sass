@@ -12,6 +12,10 @@
     
     +element('kessinger')
         font-size: 1.4em
+        display: block
+        +mobile
+            font-size: 1.25em
+            margin-bottom: 0.3em
 
     +element('logo')
         height: 2em
@@ -19,6 +23,8 @@
     +element('subtitle')
         margin-top: -0.5em
         color: darken($yellow, 20)
+        +mobile
+            margin-bottom: 0.3em
 
     +element('tagline')
         font-family: 'Alegreya Sans', sans-serif
@@ -29,3 +35,5 @@
         color: $grey
         +big
             font-size: 25.6px
+        +mobile
+            font-size: 5vw

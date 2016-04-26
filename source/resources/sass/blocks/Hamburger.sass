@@ -1,3 +1,5 @@
+$hamburger_size: 10vw
+
 .Hamburger
 
     display: block
@@ -5,8 +7,8 @@
     overflow: hidden
     margin: 0
     padding: 0
-    width: 96px
-    height: 96px
+    width: $hamburger_size
+    height: $hamburger_size
     font-size: 0
     text-indent: -9999px
     appearance: none
@@ -14,8 +16,9 @@
     border-radius: none
     border: none
     cursor: pointer
-    transition: background 0.3s
+    transition: background 0.3s, left 0.3s
     z-index: 1
+    left: 0
 
     &:hover
         background-color: transparent
@@ -26,10 +29,10 @@
     span
         display: block
         position: absolute
-        top: 44px
-        left: 18px
-        right: 18px
-        height: 8px
+        top: $hamburger_size / 2.18181818
+        left: $hamburger_size / 5.33333333
+        right: $hamburger_size / 5.33333333
+        height: $hamburger_size / 12
         background: $white
 
     span:before, span:after
@@ -37,15 +40,15 @@
         display: block
         left: 0
         width: 100%
-        height: 8px
+        height: $hamburger_size / 12
         background-color: $white
         content: ""
 
     span:before
-        top: -20px
+        top: $hamburger_size / -4.8
 
     span:after
-        bottom: -20px
+        bottom: $hamburger_size / -4.8
 
     +modifier('htx')
         background-color: transparent
@@ -66,6 +69,9 @@
         /* active state, i.e. menu open */
         &.is-active
             background-color: transparent
+            left: 50vw
+            +mobile
+                left: 80vw
 
             span
                 background: none

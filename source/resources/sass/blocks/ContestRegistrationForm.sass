@@ -50,10 +50,19 @@
 
     +element('buttons')
         margin-top: 1em
+        position: relative
 
     +element('button')
         &:first-of-type
             background-color: $white
             color: $grey
+            +mobile
+                position: absolute
+                width: 100%
+                bottom: 0
+
         &:last-of-type
             border-color: $red
+            +mobile
+                margin-top: 1em
+                margin-bottom: 3.5em

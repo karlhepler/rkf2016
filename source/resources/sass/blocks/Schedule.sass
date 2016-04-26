@@ -20,11 +20,18 @@
         border: 0.25em solid $white
         padding: 0.5em
         background-color: rgba(255,255,255,0.25)
+        +mobile
+            lost-column: 1/1
+            padding-bottom: 0.25em
+            & > *
+                font-size: 3em !important
+                display: inline
 
     +element('day')
         font-size: 1.3em
         line-height: 0.75
         color: $blue
+
     +modifier('fri')
         font-size: 1.5em
 
@@ -40,13 +47,21 @@
 
     +element('date-container')
         lost-column: 5/24
+        +mobile
+            lost-column: 1/1
+            margin-bottom: 2em
+
     +element('events')
         lost-column: 19/24
+        +mobile
+            lost-column: 1/1
 
     +element('time')
         font-size: 1.5em
         color: $blue
         margin-bottom: 0.25em
+        +mobile
+            font-size: 3em
 
     +element('event')
         background-color: rgba(255,255,255,0.5)
