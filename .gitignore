@@ -2,3 +2,5 @@ node_modules
 bower_components
 .DS_Store
 database.sqlite
+.htaccess
+source/composer.phar
