@@ -10,7 +10,7 @@
     </div>
     <div class="Header__tagline">
         <strong>Home of the West Virginia State Flatpick Guitar Contest</strong><br>
-        <small>&amp; part of <a href="http://heritagefarmmuseum.com" target="_blank">Heritage Farm Museum and Village's</a> "Way Back" Music Weekend</small>
+        <small>&amp; part of <a href="http://heritagefarmmuseum.com" target="_blank">Heritage Farm's</a> "Way Back" Music Weekend</small>
         <br><br>
         <button scroll-to="tickets-admission">Tickets &amp; Admission</button>
     </div>

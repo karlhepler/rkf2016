@@ -133,16 +133,16 @@ angular.module('rkf2016').constant('biographies', [
         Tim is East Tennessee born and bred. This Powell, Tennessee native has been a staple of the
         Knoxville music scene for more than 30 years. Tim has showcased his talents at guitar contests
         and festivals across the southeast, but most recently is known for his work with the
-        High Kotton Band and Southern Express. Tim’s guitar and singing style reflect his roots and
+        High Kotton Band and Southern Express. Tim's guitar and singing style reflect his roots and
         influences which include Doc Watson, Norman Blake and New Grass Revival. 
         <br><br>
         Jodi is originally from Waverly Hall, Georgia, but has most recently shared her musical talents
         in Colorado and nationally with her original acoustic band, Lonesome Traveler. Jodi began playing
         music and performing at an early age as a classical pianist. She took up the mandolin about 15
-        years ago and hasn’t looked back. She infuses her love of acoustic music with a diverse background
+        years ago and hasn't looked back. She infuses her love of acoustic music with a diverse background
         that includes writing songs, performing in both the University of Tennessee and University of Georgia
         marching bands, and serving as a professional collaborative pianist at the University of Northern Colorado.
-        Her fluid mandolin style reflects influences from Roland White, Tim O’Brien and Mike Compton.
+        Her fluid mandolin style reflects influences from Roland White, Tim O'Brien and Mike Compton.
     `,
     link: 'https://www.facebook.com/TimandJodiHarbin'
 },
@@ -152,7 +152,7 @@ angular.module('rkf2016').constant('biographies', [
     image: 'karl.jpg',
     bio: `
         A consummate performer and stellar guitar player / multi-instrumentalist,
-        Karl’s singular presence on stage is surprisingly engaging and always entertaining.
+        Karl's singular presence on stage is surprisingly engaging and always entertaining.
         He is truly a class act who breaks every expectation of a typical solo acoustic
         singer-songwriter. Between original works and his own take on existing songs,
         his style blurs genres, ultimately focused on the traditional mountain music of Appalachia.
@@ -165,7 +165,7 @@ angular.module('rkf2016').constant('biographies', [
         during Vandalia Gathering, and The Catan World Championship.
         <br><br>
         Incorporating the feeling and story-telling of Appalachian music community in his own music,
-        which has been compared to Gordon Lightfoot, Gram Parsons, Tim O’Brien, and Gillian Welch,
+        which has been compared to Gordon Lightfoot, Gram Parsons, Tim O'Brien, and Gillian Welch,
         Karl is a true and modern reflection of the melodies passed down through generations.
         His songs weave complex emotion through metaphor in a subtle dance around the stories they tell,
         and his voice fits perfectly between his masterful rhythmic chord stylings and his powerful and
@@ -194,7 +194,7 @@ angular.module('rkf2016').constant('biographies', [
         regional titles are among his awards. Although he has excelled in
         his contest endeavors, he is equally at home performing  workshops
         and concerts. He has performed or recorded with many artists, including
-        Tom T. Hall, Claire Lynch, Randy Howard, Peter Rowan, Alan O’Bryant,
+        Tom T. Hall, Claire Lynch, Randy Howard, Peter Rowan, Alan O'Bryant,
         Jack Lawrence, David Grier, Norman Blake, Barry Lee Harwood, T. Michael Coleman
         and many more. He has been featured as an artist and has also authored
         articles in numerous music publications.
