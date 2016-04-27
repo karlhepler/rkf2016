@@ -177,8 +177,16 @@ angular.module('rkf2016').constant('biographies', [
     performer: true,
     name: 'Jesse Smith',
     image: 'jesse.jpg',
-    bio: '',
-    link: ''
+    bio: `
+        Jesse is a finger style guitar player, lifelong musician, teacher, and learner.
+        <br><br>
+        Learn "Chet and Travis" style basics. Learn how cross picking and
+        finger picking are similar. Learn how to use finger picking to play
+        fiddle tunes, swing tunes, and other styles of music. See how to
+        play rhythm guitar using different finger picking patterns. Thumb
+        picks will be supplied. There will be handouts and exercises to
+        take home. Let's have some fun finger picking.
+    `
 },
 {
     performer: true,
