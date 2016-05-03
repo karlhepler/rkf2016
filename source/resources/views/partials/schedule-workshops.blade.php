@@ -72,6 +72,7 @@
                         <a href="#" modal biography="(biographies|filter:{name:'Karl Hepler'})[0]">Karl Hepler</a>,
                         <a href="#" modal biography="(biographies|filter:{name:'Allen Shadd'})[0]">Allen Shadd</a>,
                         <a href="#" modal biography="(biographies|filter:{name:'Dan Kessinger'})[0]">Dan Kessinger</a>,
+                        <a href="#" modal biography="(biographies|filter:{name:'The Bing Brothers Band featuring Jake Krack'})[0]">The Bing Brothers Band featuring Jake Krack</a>
                         and special guests.
                     </p>
                 </div>

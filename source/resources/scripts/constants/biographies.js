@@ -1,6 +1,57 @@
 angular.module('rkf2016').constant('biographies', [
 {
     performer: true,
+    name: 'The Bing Brothers Band featuring Jake Krack',
+    image: 'bing.jpg',
+    bio: `
+        For over 40 years, The Bing Brothers have played their hard-driving brand of string
+        band music from Canada to Florida - from Spain to England, and from Australia, to
+        Ireland and Scotland. Their sound has been formed in the West Virginia mountains,
+        and they remain true to their roots. Yet The Bing Brothers are highly versatile,
+        playing selections in old time and bluegrass, as well as traditional Irish songs
+        and ragtime. 
+        <br><br>
+        Banjo player Tim Bing is a 14-time West Virginia State Champion and Appalachian String
+        Band winner. Fiddler Jake Krack has won the Galax Fiddler's Convention Contest 6 times
+        and is known as one of today's top old time fiddlers. Mandolin player and band leader
+        Mike Bing has been the glue that has kept the band together for over 40 years, and created
+        <a href="http://www.alleghenyechoes.com" target="_blank">The Allegheny Echoes Summer Workshops</a>,
+        which celebrate Pocahontas County and West Virginia
+        music. Mike has developed his own style of Mandolin which blends a solid rhythm chop and
+        unmatched melody playing into the Bing Brothers style. Because of their contributions to
+        West Virginia music, Mike and Tim Bing were the 2012 recipients of the
+        <a href="http://www.wvculture.org/vandalia/award/index.html" target="_blank">West Virginia Culture and History's Vandalia Award</a>.
+        <br><br>
+        The Bing Brothers Band have kept the powerful rhythm of the band cranking with the
+        additions of guitarist Bob Lieving and bassist Tim Corbett in 2002. In 2010 fiddler
+        Jake Krack joined the band as they began to reach new levels. Since that time, The
+        band has won First Place in the Old Time Band Contest at the Galax Fiddler's Convention
+        4 times, at which Jake Krack was also awarded First Place Fiddler 6 times and Best
+        All Around Performer 5 times. 
+        <br><br>
+        In March 2011 the group began recording live performances for the release of their
+        "LIVE from Pocahontas County WV" recording, which was released in March 2012 and
+        received great reviews. The recording was the 3rd release for The Bing Brothers Band.
+        Also in 2012 the band toured Australia including performances at the 30th
+        <a href="http://www.yarrajunctionfiddlersconvention.com" target="_blank">Yarra Junction Fiddler's Convention</a>
+        in addition to their performances at festivals and venues here in the U.S.
+        <br><br>
+        In March 2015 the band was invited to perform on Broadway in New York City as
+        part of <a href="http://www.irishartscenter.org" target="_blank">The Irish Arts Center's Celtic Appalachian Celebration</a>.
+        The band was part of 2 sold out performances of the event, and in June of 2015 they
+        released the "Live from Broadway NYC" DVD featuring their portion of the show which
+        again received great reviews.
+        <br><br>
+        In addition to performing, The Bing Brothers Band is involved personally with the
+        <a href="http://www.alleghenyechoes.com" target="_blank">Allegheny Echoes Workshops</a> which
+        Mike helped create held the last week of June in Marlinton, WV. All of the band
+        members are staff instructors. 2016 marks the 20th Anniversary of the
+        <a href="http://www.alleghenyechoes.com" target="_blank">Allegheny Echoes Workshops</a>.
+    `,
+    link: 'https://www.facebook.com/The-Bing-Brothers-Band-featuring-Jake-Krack-185045588236390'
+},
+{
+    performer: true,
     name: 'Robin Kessinger',
     image: 'robin.jpg',
     bio: `
@@ -157,9 +208,9 @@ angular.module('rkf2016').constant('biographies', [
         singer-songwriter. Between original works and his own take on existing songs,
         his style blurs genres, ultimately focused on the traditional mountain music of Appalachia.
         <br><br>
-        Spring-boarding from the Allegheny Echoes Workshops, he has studied with and performed
-        alongside some of the modern-day greats of Appalachian music including Robin Kessinger,
-        Robert Shafer, Bobby Taylor, The Bing Brothers Band, The Whitetop Mountaineers, and
+        Spring-boarding from the <a href="http://www.alleghenyechoes.com" target="_blank">Allegheny Echoes Workshops</a>,
+        he has studied with and performed alongside some of the modern-day greats of Appalachian
+        music including Robin Kessinger, Robert Shafer, Bobby Taylor, The Bing Brothers Band, The Whitetop Mountaineers, and
         The Poor Taters (to name a few). Some notable performances include Oyster Ridge Music Festival,
         The Tamarack, Richmond Folk Music Society, Shady Grove Coffeehouse, The Charleston Culture Center
         during Vandalia Gathering, and The Catan World Championship.
