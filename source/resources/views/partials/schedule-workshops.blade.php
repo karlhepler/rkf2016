@@ -23,7 +23,7 @@
                         <a href="#" modal biography="(biographies|filter:{name:'Robin Kessinger'})[0]">Robin Kessinger</a>,
                         <a href="#" modal biography="(biographies|filter:{name:'Robert Shafer'})[0]">Robert Shafer</a>,
                         <a href="#" modal biography="(biographies|filter:{name:'Dan Kessinger'})[0]">Dan Kessinger</a>,
-                        and <a href="#" modal biography="(biographies|filter:{name:'Roger Rabalais'})[0]">Rober Rabalais</a>.
+                        and <a href="#" modal biography="(biographies|filter:{name:'Roger Rabalais'})[0]">Roger Rabalais</a>.
                     </p>
                 </div>
             </div>
