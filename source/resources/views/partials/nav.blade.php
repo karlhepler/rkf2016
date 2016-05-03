@@ -8,8 +8,6 @@
     ps-side="left"
     ps-body-class="true"
     ps-speed="0.3"
-    ps-push="true"
-    ps-auto-close="true"
     ps-size="@{{ isMobile() ? '80vw' : '50vw' }}">
     <div>
         <nav class="Navigation">
