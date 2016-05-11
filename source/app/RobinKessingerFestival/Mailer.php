@@ -22,8 +22,6 @@ class Mailer
     public function __construct(IlluminateMailer $mailer)
     {
         $this->mailer = $mailer;
-
-        $this->registerGlobalEmailFunction();
     }
 
     ////////////////////
@@ -42,23 +40,6 @@ class Mailer
             $message->to($emailAddress);
             $message->subject('Email from RKF works!');
         });
-    }
-
-    ///////////////////////
-    // PROTECTED METHODS //
-    ///////////////////////
-
-    /**
-     * Register the global email() function
-     *
-     * @return void
-     */
-    protected function registerGlobalEmailFunction()
-    {
-        function email()
-        {
-            return $this;
-        }
     }
 
     ///////////////////
