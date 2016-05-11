@@ -21,18 +21,4 @@ class AppServiceProvider extends ServiceProvider
             return $app->loadComponent('mail', 'Illuminate\Mail\MailServiceProvider', 'mailer');
         });
     }
-
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        if ( !function_exists('email') ) {
-            function email() {
-                return new Mailer(app(IlluminateMailer::class));
-            }
-        }
-    }
 }
