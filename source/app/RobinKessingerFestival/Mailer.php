@@ -61,7 +61,7 @@ class Mailer
      */
     public function mailAlertAdminsOfNewRegistration(Registrant $registrant)
     {
-        $this->mailer->send('emails.registration',
+        $this->mailer->send(['text' => 'emails.registration'],
         compact('registrant'), function($message) {
             $message->to($this->admins);
             $message->subject('New contest registration!');

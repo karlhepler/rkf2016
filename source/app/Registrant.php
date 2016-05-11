@@ -27,6 +27,35 @@ class Registrant extends Model
         'dob'
     ];
 
+    ////////////////////
+    // PUBLIC METHODS //
+    ////////////////////
+
+    /**
+     * Return the address as a string
+     *
+     * @return string
+     */
+    public function address()
+    {
+        return $this->address_street
+            .', '.$this->address_city
+            .', '.$this->address_state
+            .' '.$this->address_zip;
+    }
+
+    /**
+     * Return YES if agreed and NO if not
+     *
+     * @return string
+     */
+    public function agreed()
+    {
+        return $this->agree_rules
+            ? 'YES'
+            : 'NO';
+    }
+
     ///////////////////////////
     // PUBLIC STATIC METHODS //
     ///////////////////////////
