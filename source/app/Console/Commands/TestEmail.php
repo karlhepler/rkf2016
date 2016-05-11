@@ -11,18 +11,19 @@ class TestEmail extends Command
 
     public function handle()
     {
-        $this->enforceRequiredOptions();
+        list($to) = $this->enforceRequiredOptions();
 
         $this->info('Sending...');
-        email()->test($this->option('to'));
-        $this->info('Sent to ' . $this->option('to') . '!');
+        email()->test($to);
+        email()->alertAdminsOfNewRegistration(\App\Registrant::first());
+        $this->info("Sent to {$to}!");
     }
 
     /**
      * Make sure all required options are there.
      * If not, then print errors & die
      *
-     * @return void
+     * @return array
      */
     protected function enforceRequiredOptions()
     {
@@ -31,5 +32,9 @@ class TestEmail extends Command
             $this->error('You must supply a "to" email address: --to=email@address.com');
             die;
         }
+
+        return [
+            $this->option('to')
+        ];
     }
 }

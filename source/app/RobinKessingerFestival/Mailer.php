@@ -2,6 +2,7 @@
 
 namespace App\RobinKessingerFestival;
 
+use App\Registrant;
 use Illuminate\Contracts\Mail\Mailer as IlluminateMailer;
 
 class Mailer
@@ -14,14 +15,23 @@ class Mailer
     protected $mailer;
 
     /**
+     * Admin email addresses
+     *
+     * @var array
+     */
+    protected $admins;
+
+    /**
      * Consolidated mailer class that also
      * defines a global email() function
      *
      * @param Mailer $mailer
+     * @param array $admins
      */
-    public function __construct(IlluminateMailer $mailer)
+    public function __construct(IlluminateMailer $mailer, array $admins)
     {
         $this->mailer = $mailer;
+        $this->admins = $admins;
     }
 
     ////////////////////
@@ -42,6 +52,22 @@ class Mailer
         });
     }
 
+    /**
+     * Email admins, letting them know that
+     * the registrant just registered
+     *
+     * @param  Registrant $registrant
+     * @return void
+     */
+    public function mailAlertAdminsOfNewRegistration(Registrant $registrant)
+    {
+        $this->mailer->send('emails.registration',
+        compact('registrant'), function($message) {
+            $message->to($this->admins);
+            $message->subject('New contest registration!');
+        });
+    }
+
     ///////////////////
     // MAGIC METHODS //
     ///////////////////
@@ -56,7 +82,7 @@ class Mailer
     public function __call($name, array $args)
     {
         // Get the method name
-        $methodName = 'mail'.ucfirst(strtolower($name));
+        $methodName = 'mail'.ucfirst($name);
 
         // If the method doesn't exist, throw an exception
         if ( !method_exists($this, $methodName) ) {

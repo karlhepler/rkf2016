@@ -17,7 +17,7 @@ class RegistrantEventListener
      */
     public function onRegistrantRegistered(RegistrantRegistered $event)
     {
-        //
+        email()->alertAdminsOfNewRegistration($event->registrant);
     }
 
     /**
