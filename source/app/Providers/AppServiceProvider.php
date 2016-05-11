@@ -13,6 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Register mailer
+        $this->app->singleton(\Illuminate\Contracts\Mail\Mailer::class, function($app) {
+            $app->configure('mail');
+            return $app->loadComponent('mail', 'Illuminate\Mail\MailServiceProvider', 'mailer');
+        });
     }
 }
