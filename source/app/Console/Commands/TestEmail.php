@@ -23,7 +23,9 @@ class TestEmail extends Command
     {
         $this->enforceRequiredOptions();
 
+        $this->info('Sending...');
         $this->sendTestEmailTo($this->option('to'));
+        $this->info('Sent to ' . $this->option('to') . '!');
     }
 
     /**
