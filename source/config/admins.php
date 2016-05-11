@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'karl.hepler@gmail.com',
-    'khepler@brandmovers.com'
+    'robinkessingerfestival@gmail.com',
+    'karl.hepler@gmail.com'
 ];

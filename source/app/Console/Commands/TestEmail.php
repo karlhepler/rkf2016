@@ -15,7 +15,6 @@ class TestEmail extends Command
 
         $this->info('Sending...');
         email()->test($to);
-        email()->alertAdminsOfNewRegistration(\App\Registrant::first());
         $this->info("Sent to {$to}!");
     }
 
