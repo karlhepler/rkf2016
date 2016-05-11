@@ -80,7 +80,10 @@
     <!-- Submit -->
     <div class="ContestRegistrationForm__buttons grid-row">
         <button class="ContestRegistrationForm__button grid-half" type="button" ng-click="$close()" ng-disabled="waitingForServer">Cancel</button>
-        <button class="ContestRegistrationForm__button grid-half" type="submit" ng-disabled="waitingForServer">Submit</button>
+        <button class="ContestRegistrationForm__button grid-half" type="submit" ng-disabled="waitingForServer">
+            <span ng-hide="waitingForServer">Submit</span>
+            <img class="ContestRegistrationForm__spinner" src="/images/spinner.gif" ng-show="waitingForServer">
+        </button>
     </div>
 
 </form>
