@@ -7,7 +7,7 @@
             <p class="align-center">The contest winner will receive paid entry to the national flatpick contest at the <a href="https://wvfest.com" target="_blank">Walnut Valley Festival</a>, Winfield, KS – Sept. 14 – 18, 2016</p>
             <ul class="Prizes">
                 <li class="Prizes__prize"><span class="Prizes__place">1st Place</span> <a class="Prizes__link" href="https://www.facebook.com/Craig-Southern-Guitars-162117127210699" target="_blank">Craig Southern</a> custom-made dreadnaught.</li>
-                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> Torrefied Recording King from <a class="Prizes__link" href="http://www.fretnfiddle.com" target="_blank">Fret 'n Fiddle</a></li>
+                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> Blueridge Dreadnought Mahogany BR-140A from <a class="Prizes__link" href="http://www.fretnfiddle.com" target="_blank">Fret 'n Fiddle</a></li>
                 <li class="Prizes__prize"><span class="Prizes__place">3rd Place</span> Sigma OM (Rosewood) with K&amp;K pickup</li>
             </ul>
         </div>
