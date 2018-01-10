@@ -29,15 +29,9 @@
     <main>
         @include('partials.about')
         <hr>
-        @include('partials.performers-instructors')
-        <hr>
         @include('partials.location-directions')
         <hr>
-        @include('partials.schedule-workshops')
-        <hr>
         @include('partials.contest-information')
-        <hr>
-        @include('partials.tickets-admission')
         <hr>
         @include('partials.contact-us')
     </main>
