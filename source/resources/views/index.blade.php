@@ -8,7 +8,6 @@
     <meta name="description" content="Home of the West Virginia state flatpick guitar contest &amp; part of Heritage Farm's \"way back\" music weekend.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="HandheldFriendly" content="true">
-    <meta http-equiv="X-Frame-Options" content="deny">
 
     @include('tags.fb')
     @include('tags.favicon')
