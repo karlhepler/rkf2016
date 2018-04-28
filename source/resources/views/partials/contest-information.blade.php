@@ -6,9 +6,10 @@
             <br>
             <p class="align-center">The contest winner will receive paid entry to the national flatpick contest at the <a href="https://wvfest.com" target="_blank">Walnut Valley Festival</a>, Winfield, KS – Sept. 12 – 16, 2018</p>
             <ul class="Prizes">
-                <li class="Prizes__prize"><span class="Prizes__place">1st Place</span> To Be Announced</li>
-                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> To Be Announced</li>
-                <li class="Prizes__prize"><span class="Prizes__place">3rd Place</span> To Be Announced</li>
+                <li class="Prizes__prize"><span class="Prizes__place">1st Place</span> Custom Made Bob Thompson D-18 Style Guitar</li>
+                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> Blue Ridge Guitar from Fret &amp; Fiddle</li>
+                <li class="Prizes__prize"><span class="Prizes__place">3rd Place</span> Custom Made Doug Hepler Guitar</li>
+                <li class="Prizes__prize"><span class="Prizes__place">4th Place</span> Guitar from Route 60 Music</li>
             </ul>
         </div>
         <div class="grid-half align-center">
@@ -24,6 +25,11 @@
             <button modal tpl="register">Register Now</button>
         </div>
     </div>
+    <div class="grid-row">
+        <div class="grid-half"><a href="/images/contest-info.jpg" target="_blank"><img src="/images/contest-info.jpg"></a></div>
+        <div class="grid-half"><a href="/images/registration-form.jpg" target="_blank"><img src="/images/registration-form.jpg"></a></div>
+    </div>
+    <br>
     <hr class="show-mobile">
     <div class="HallOfFame">
         <h4 class="HallOfFame__title">Past Winners</h4>
