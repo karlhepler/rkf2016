@@ -11,6 +11,7 @@ class ComposerStaticInit6d76f858f3eab2103ba231b2d3ec5bd6
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
@@ -31,6 +32,7 @@ class ComposerStaticInit6d76f858f3eab2103ba231b2d3ec5bd6
             'Symfony\\Polyfill\\Util\\' => 22,
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Process\\' => 26,
@@ -44,6 +46,7 @@ class ComposerStaticInit6d76f858f3eab2103ba231b2d3ec5bd6
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Prophecy\\' => 9,
         ),
         'M' => 
         array (
@@ -123,6 +126,10 @@ class ComposerStaticInit6d76f858f3eab2103ba231b2d3ec5bd6
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
@@ -162,6 +169,10 @@ class ComposerStaticInit6d76f858f3eab2103ba231b2d3ec5bd6
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Prophecy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
         'Monolog\\' => 
         array (
@@ -298,11 +309,11 @@ class ComposerStaticInit6d76f858f3eab2103ba231b2d3ec5bd6
     );
 
     public static $prefixesPsr0 = array (
-        'P' => 
+        'U' => 
         array (
-            'Prophecy\\' => 
+            'UpdateHelper\\' => 
             array (
-                0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+                0 => __DIR__ . '/..' . '/kylekatarnls/update-helper/src',
             ),
         ),
     );
