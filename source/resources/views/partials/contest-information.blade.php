@@ -4,17 +4,21 @@
         <div class="grid-half">
             <h4 class="blue">Prizes</h4>
             <br>
-            <p class="align-center">
+            <p>
                 The contest winner will receive paid entry
                 to the national flatpick contest at the
                 <a href="https://wvfest.com" target="_blank">Walnut Valley Festival</a>,
                 Winfield, KS – Sept. 18 – 22, 2019
             </p>
+            <p>
+                The first place winner will get to choose any one of the three available prizes.
+                The second place winner will get to choose any one of the two remaining prizes.
+                The third place winner will receive the remaining prize.
+            </p>
             <ul class="Prizes">
-                <li class="Prizes__prize"><span class="Prizes__place">1st Place</span> <a href="http://www.bobthompsonguitars.com/" target="_blank">Custom Bob Thompson Guitar</a></li>
-                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> TBD</li>
-                <li class="Prizes__prize"><span class="Prizes__place">3rd Place</span> TBD</li>
-                <li class="Prizes__prize"><span class="Prizes__place">4th Place</span> TBD</li>
+                <li class="Prizes__prize"><span class="Prizes__place">Prize #1</span> Custom-made guitar by Larry Thompson<br><i>(of Bob Thompson Guitars)</i></li>
+                <li class="Prizes__prize"><span class="Prizes__place">Prize #2</span> Custom-made guitar by Todd Sams</li>
+                <li class="Prizes__prize"><span class="Prizes__place">Prize #3</span> Martin</li>
             </ul>
         </div>
         <div class="grid-half align-center">

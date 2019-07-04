@@ -32,6 +32,8 @@
         <hr>
         @include('partials.contest-information')
         <hr>
+        @include('partials.tickets-admission')
+        <hr>
         @include('partials.contact-us')
     </main>
     <hr>
