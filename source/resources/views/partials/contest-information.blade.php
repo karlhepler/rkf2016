@@ -4,12 +4,17 @@
         <div class="grid-half">
             <h4 class="blue">Prizes</h4>
             <br>
-            <p class="align-center">The contest winner will receive paid entry to the national flatpick contest at the <a href="https://wvfest.com" target="_blank">Walnut Valley Festival</a>, Winfield, KS – Sept. 12 – 16, 2018</p>
+            <p class="align-center">
+                The contest winner will receive paid entry
+                to the national flatpick contest at the
+                <a href="https://wvfest.com" target="_blank">Walnut Valley Festival</a>,
+                Winfield, KS – Sept. 18 – 22, 2019
+            </p>
             <ul class="Prizes">
-                <li class="Prizes__prize"><span class="Prizes__place">1st Place</span> Custom Made Bob Thompson D-18 Style Guitar</li>
-                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> Blue Ridge Guitar from Fret &amp; Fiddle</li>
-                <li class="Prizes__prize"><span class="Prizes__place">3rd Place</span> Custom Made Doug Hepler Guitar</li>
-                <li class="Prizes__prize"><span class="Prizes__place">4th Place</span> Guitar from Route 60 Music</li>
+                <li class="Prizes__prize"><span class="Prizes__place">1st Place</span> <a href="http://www.bobthompsonguitars.com/" target="_blank">Custom Bob Thompson Guitar</a></li>
+                <li class="Prizes__prize"><span class="Prizes__place">2nd Place</span> TBD</li>
+                <li class="Prizes__prize"><span class="Prizes__place">3rd Place</span> TBD</li>
+                <li class="Prizes__prize"><span class="Prizes__place">4th Place</span> TBD</li>
             </ul>
         </div>
         <div class="grid-half align-center">
@@ -26,14 +31,15 @@
         </div>
     </div>
     <div class="grid-row">
-        <div class="grid-half"><a href="/images/contest-info.jpg" target="_blank"><img src="/images/contest-info.jpg"></a></div>
-        <div class="grid-half"><a href="/images/registration-form.jpg" target="_blank"><img src="/images/registration-form.jpg"></a></div>
+        <div class="grid-half"><a href="/images/contest-info.jpg" target="_blank"><img src="/images/contest-info.jpg?2019"></a></div>
+        <div class="grid-half"><a href="/images/registration-form.jpg" target="_blank"><img src="/images/registration-form.jpg?2019"></a></div>
     </div>
     <br>
     <hr class="show-mobile">
     <div class="HallOfFame">
         <h4 class="HallOfFame__title">Past Winners</h4>
         <ul class="HallOfFame__winners">
+            <li class="HallOfFame__winner orange"><span class="HallOfFame__year">2018</span> Allen Shadd</li>
             <li class="HallOfFame__winner red"><span class="HallOfFame__year">2016</span> Presley Barker</li>
             <li class="HallOfFame__winner blue"><span class="HallOfFame__year">2014</span> Allen Shadd</li>
             <li class="HallOfFame__winner darkyellow"><span class="HallOfFame__year">2013</span> Matt Lindsey</li>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Robin Kessinger West VA State Flatpick Guitar Contest & Workshops</title>
-    <meta name="description" content="Proudly partnered with the Fly In Festival, Aug 23-25 2018">
+    <meta name="description" content="Proudly partnered with the Fly In Festival, Aug 23-24 2019">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="HandheldFriendly" content="true">
 
