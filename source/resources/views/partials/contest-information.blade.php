@@ -16,9 +16,13 @@
                 The third place winner will receive the remaining prize.
             </p>
             <ul class="Prizes">
-                <li class="Prizes__prize"><span class="Prizes__place">Prize #1</span> Custom-made guitar by Larry Thompson<br><i>(of Bob Thompson Guitars)</i></li>
-                <li class="Prizes__prize"><span class="Prizes__place">Prize #2</span> Custom-made guitar by Todd Sams</li>
-                <li class="Prizes__prize"><span class="Prizes__place">Prize #3</span> Martin</li>
+                <li class="Prizes__prize">
+                    <span class="Prizes__place">Prize #1</span>
+                    Custom-made guitar by Larry Thompson<br>
+                    <small><i>(of <a href="http://www.bobthompsonguitars.com" target="_blank">Bob Thompson Guitars</a>)</i></small>
+                </li>
+                <li class="Prizes__prize"><span class="Prizes__place">Prize #2</span> TBD</li>
+                <li class="Prizes__prize"><span class="Prizes__place">Prize #3</span> TBD</li>
             </ul>
         </div>
         <div class="grid-half align-center">
