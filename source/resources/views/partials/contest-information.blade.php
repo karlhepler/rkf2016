@@ -47,6 +47,7 @@
     <div class="HallOfFame">
         <h4 class="HallOfFame__title">Past Winners</h4>
         <ul class="HallOfFame__winners">
+            <li class="HallOfFame__winner darkyellow"><span class="HallOfFame__year">2019</span> Matthew Taylor</li>
             <li class="HallOfFame__winner orange"><span class="HallOfFame__year">2018</span> Allen Shadd</li>
             <li class="HallOfFame__winner red"><span class="HallOfFame__year">2016</span> Presley Barker</li>
             <li class="HallOfFame__winner blue"><span class="HallOfFame__year">2014</span> Allen Shadd</li>
